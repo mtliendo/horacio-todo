@@ -1,14 +1,14 @@
 import React from 'react'
 
 function TodoList({ todos, updateTodos }) {
-  const handleDelete = (todoToDelete) => {
-    const filteredTodos = todos.filter((todo) => todo.id !== todoToDelete.id)
+  const handleDelete = (selectedTodo) => {
+    const filteredTodos = todos.filter((todo) => todo.id !== selectedTodo.id)
     updateTodos(filteredTodos)
   }
 
-  const toggleCompleted = (todoToUpdate) => {
+  const toggleCompleted = (selectedTodo) => {
     const updatedTodos = todos.map((todo) => {
-      if (todo.id === todoToUpdate.id) {
+      if (todo.id === selectedTodo.id) {
         todo.completed = !todo.completed
         return todo
       }
